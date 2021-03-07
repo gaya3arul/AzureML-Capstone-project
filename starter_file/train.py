@@ -10,30 +10,38 @@ import pandas as pd
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
 
-df = pd.read_csv('./train.csv')
-
-# Preview of the first five rows
-print(df.head())
-
-# Explore data
-print(df.describe())
+def clean_data(data):
+    # Dict for cleaning data
 
 
+    # Clean and one hot encode data
+    x_df = data.to_pandas_dataframe().dropna()
+    Operator = pd.get_dummies(x_df.Operator, prefix="job")
+    x_df.drop("Operator", inplace=True, axis=1)
+    x_df.drop("Date", inplace=True, axis=1)
+    
 
-# Data columns
-df.columns = ['ID', 'Date', 'Temperature', 'Humidity','Operator','Measure1', 'Measure2','Measure3','Measure4','Measure5','Measure6','Measure7','Measure8','Measure9','Measure10','Measure11','Measure12','Measure13','Measure14','Measure15','Hours Since Previous Failure','Failure','?Date.year','?Date.month','?Date.day-of-month','?Date.day-of-week','?Date.hour','?Date.minute','?Date.second']
-x = df[['ID', 'Date', 'Temperature', 'Humidity','Operator', 'Measure1', 'Measure2','Measure3','Measure4','Measure5','Measure6','Measure7','Measure8','Measure9','Measure10','Measure11','Measure12','Measure13','Measure14','Measure15','Hours Since Previous Failure','?Date.year','?Date.month','?Date.day-of-month','?Date.day-of-week','?Date.hour','?Date.minute','?Date.second']]
-y = df[['Failure']]
+    y_df = x_df.pop("Failure").apply(lambda s: 1 if s == "Yes" else 0)
+    return x_df,y_df
+
+# TODO: Create TabularDataset using TabularDatasetFactory
+# Data is located at:
+datastore_path="https://raw.githubusercontent.com/gaya3arul/nd00333-capstone/master/train.csv"
+
+ds = TabularDatasetFactory.from_delimited_files(path=datastore_path)
 
 
-# Split data into train and test sets.
-# Documentation: https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+x, y = clean_data(ds)
 
-data = {"train": {"X": x_train, "y": y_train},
-        "test": {"X": x_test, "y": y_test}}
+# TODO: Split data into train and test sets.
+
+#dividing X,y into train and test data
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=403)
+
+### YOUR CODE HERE ###a
 
 run = Run.get_context()
+
 
 def main():
     # Add arguments to script
@@ -51,12 +59,8 @@ def main():
 
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
-
-    os.makedirs('outputs', exist_ok=True)
-
+    os.makedirs('outputs', exist_ok=True)    
     joblib.dump(value=model, filename='outputs/model.pkl')
 
-    
-data = pd.read_csv('./train.csv')
 if __name__ == '__main__':
     main()
