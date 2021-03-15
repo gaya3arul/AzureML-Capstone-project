@@ -9,9 +9,7 @@
    * [Hyperparameter Tuning](#Hyperparameter-Tuning)
    * [Model Deployment](#Model-Deployment)
    * [Screen Recording](#Screen-Recording)
-   * [Comments and future improvements](#Comments-and-future-improvements)
-   * [Dataset Citation](#Dataset-Citation)
-   * [References](#References)
+   * [Standout_suggestions](#Standout suggestion)
 
 ***
 
@@ -174,7 +172,7 @@ The log file to write debug information to.
 
 `enable_onnx_compatible_models = True`
 
-I have enabled the ONNX-compatible models. Finally also saved the  Open Neural Network Exchange (ONNX) model. Referred the notebook saved here(https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)
+I have enabled the ONNX-compatible models. Finally also saved the  Open Neural Network Exchange (ONNX) model. Referred the notebook saved [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)
 
 'blocked_models=['XGBoostClassifier']'
 
@@ -347,11 +345,41 @@ The inference configuration defines the environment used to run the deployed mod
 
 ![inf-conf1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/inf-conf1.png)
 
+Best Model is deployed using the below code:
+![model-deployment](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/model-deployment.png)
+
+Deployed-model:
+![deployed-model](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/deployed-model.png)
+
+![deployed-model1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/deployed-model1.png)
+
+The scoring URI can be used by clients to submit requests to the service.
+
+In order to test the deployed model, I use a Python file, named endpoint.py:
+
+Updating endpoint.py file
+![updating-endpoint](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/updating-endpoint.png)
+
+After updating the endpoint file, the script can be run to send and receive results through http service:
+
+Swagger UI:
+![swagger-ui](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui.png)
+![swagger-ui1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui1.png)
+![swagger-ui2](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui2.png)
+
+
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
+The screencast is available [here](https://youtu.be/yhK972pvVco) and it covers
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+Convert your model to ONNX format. Your Jupyter notebook contains documentation and code for converting the model to the ONNX format.
+I completed the above point . It can be found in the automl.ipynb notebook.
+
+![save-onnx](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/save-onnx.png)
+
+
+
