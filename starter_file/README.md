@@ -187,13 +187,13 @@ Before building the model, the data is validated and processed.
 The dataset is a balanced datasetno features were missing and no high cardinality features were detected .
 
 Data Guardrails checks in the AzureML Studio:
-[data-guardrails](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/data-guardrails.png)
+![data-guardrails](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/data-guardrails.png)
 
 #### Completion of the AutoML run (RunDetails widget): 
 
-[automl-runwidget](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget.png)
+![automl-runwidget](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget.png)
 
-[automl-runwidget-accuracy-gr](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget-accuracy-gr.png)
+![automl-runwidget-accuracy-gr](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget-accuracy-gr.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
