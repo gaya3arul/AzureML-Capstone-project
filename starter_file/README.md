@@ -9,7 +9,7 @@
    * [Hyperparameter Tuning](#Hyperparameter-Tuning)
    * [Model Deployment](#Model-Deployment)
    * [Screen Recording](#Screen-Recording)
-   * [Standout Suggestions](#Standout Suggestions)
+   * [Standout Suggestions](#Standout-Suggestions)
 
 ***
 
