@@ -234,7 +234,7 @@ _Charts_
 
 _Aggregate feature importance_
 
-!feature-imp](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/feature-imp.png)
+![feature-imp](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/feature-imp.png)
 
 As we can see, **time** is by far the **most important factor**, followed by ejection fraction and serum creatinine.
 
@@ -308,7 +308,6 @@ Best model overview:
 | --C | 500|
 | --max_iter | 50 |
 
-
 ## Model Deployment
 The deployment is done following the steps below:
 
@@ -345,6 +344,17 @@ The inference configuration defines the environment used to run the deployed mod
 
 ![inf-conf1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/inf-conf1.png)
 
+### Entry script
+
+The entry script is the `scoring_file_v_1_0_0.py` file. The entry script loads the model when the deployed service starts and it is also responsible for receiving data, passing it to the model, and then returning a response.
+### Compute target
+
+As compute target, I chose the Azure Container Instances (ACI) service, which is used for low-scale CPU-based workloads that require less than 48 GB of RAM.
+
+The AciWebservice Class represents a machine learning model deployed as a web service endpoint on Azure Container Instances. The deployed service is created from the model, script, and associated files, as I explain above. The resulting web service is a load-balanced, HTTP endpoint with a REST API. We can send data to this API and receive the prediction returned by the model.
+
+### Deployment
+
 Best Model is deployed using the below code:
 ![model-deployment](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/model-deployment.png)
 
@@ -376,7 +386,7 @@ The screencast is available [here](https://youtu.be/yhK972pvVco) and it covers
 
 ## Standout Suggestions
 
-Convert your model to ONNX format. Your Jupyter notebook contains documentation and code for converting the model to the ONNX format.
+Converted my model to ONNX format.
 I completed the above point . It can be found in the automl.ipynb notebook.
 
 ![save-onnx](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/save-onnx.png)
