@@ -1,8 +1,23 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Your Project Title Here
+#Predict survival of patients with heart failure using AutoML and HyperDrive
 
-*TODO:* Write a short introduction to your project.
+## Table of contents
+   * [Overview](#Overview)
+   * [Project Set Up and Installation](#Project-Set-Up-and-Installation)
+   * [Dataset](#Dataset)
+   * [Automated ML](#Automated-ML)
+   * [Hyperparameter Tuning](#Hyperparameter-Tuning)
+   * [Model Deployment](#Model-Deployment)
+   * [Screen Recording](#Screen-Recording)
+   * [Comments and future improvements](#Comments-and-future-improvements)
+   * [Dataset Citation](#Dataset-Citation)
+   * [References](#References)
+
+***
+
+## Overview
+The current project uses machine learning to predict patients’ survival based on their medical data. 
+
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
