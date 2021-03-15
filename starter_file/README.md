@@ -209,9 +209,9 @@ Best model results:
 
 | AutoML Model | |
 | :---: | :---: |
-| id | AutoML_213153bb-f0e4-4be9-b265-6bbad4f0f9e4_40 |
-| Accuracy | 0.8595525727069351 |
-| AUC_weighted | 0.9087491748331944 |
+| id | AutoML_f1aafa23-4cfa-496b-8db6-30ac5a0eca6c_42|
+| Accuracy | 0.8629306487695749 |
+| AUC_weighted | 0.9 |
 | Algorithm | VotingEnsemble |
 
 ***Screenshots from Azure ML Studio***
@@ -291,12 +291,61 @@ Hyperdrive experiment run completion in Experiments tab:
 
 ![hyp-drive-parallel-chart](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-drive-parallel-chart.png)
 
+
+
+#### Best model
+
+After the completion, we can see and get the metrics and details of the best run:
+
 `--C` 'Regularization Strength': 500 , `--max iter` Maximum Iterations: 50 and Accuracy acheived is 0.8333
 Hyperdrive best run parameters: 
 ![hyp-best-run-with-metrics](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-best-run-with-metrics.png)
 
+Best model overview:
+
+| HyperDrive Model | |
+| :---: | :---: |
+| id | HD_f26f8b71-9545-45d9-bbb3-2e873f8553f2_4|
+| Accuracy | 0.8333333333333334 |
+| --C | 500|
+| --max_iter | 50 |
+
+
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+The deployment is done following the steps below:
+
+* Selection of an already registered model
+* Preparation of an inference configuration
+* Preparation of an entry script
+* Choosing a compute target
+* Deployment of the model
+* Testing the resulting web service
+
+### Registered model
+
+Using as basis the `accuracy` metric, we can state that the best AutoML model is superior to the best model that resulted from the HyperDrive run. For this reason, I choose to deploy the best model from AutoML run (`best_run_automl.pkl`, Version 2). 
+
+_Registered models in Azure Machine Learning Studio_
+
+![model-list](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/model-list.png)
+
+_Runs of the experiment_
+![all-exp](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/all-exp.png)
+
+Deployed the best model Voting Ensemble resulted from Automated ML run.
+
+![deployed-model](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/deployed-model.png)
+
+### Inference configuration
+
+The inference configuration defines the environment used to run the deployed model. The inference configuration includes two entities, which are used to run the model when it's deployed:
+
+![inf-conf](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/inf-conf.png)
+
+- An entry script, named `scoring_file_v_1_0_0.py`.
+- An Azure Machine Learning environment, named `env.yml` in this case. The environment defines the software dependencies needed to run the model and entry script.
+
+![inf-conf1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/inf-conf1.png)
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
