@@ -16,8 +16,16 @@
 ***
 
 ## Overview
-The current project uses machine learning to predict patients’ survival based on their medical data. 
+The current project uses machine learning to predict patients’ survival based on their medical data. The dataset is used from kaggle . 
+Dataset: https://www.kaggle.com/andrewmvd/heart-failure-clinical-data?select=heart_failure_clinical_records_dataset.csv
 
+As part of this capstone project, after registering the dataset into Azure Machine Learning Studio, I need to create two experiments 
+
+i) To train a Model using Logistic Regression Model using custom scikit-learn and tune the hyperparameters using HyperDrive.
+ii) To train a Model using Automated ML 
+
+Given below is the workflow for this project
+![Project Workflow](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/proj-workflow.png) 
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
