@@ -174,7 +174,7 @@ The log file to write debug information to.
 
 I have enabled the ONNX-compatible models. Finally also saved the  Open Neural Network Exchange (ONNX) model. Referred the notebook saved [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)
 
-'blocked_models=['XGBoostClassifier']'
+`blocked_models=['XGBoostClassifier']`
 
 I blocked the ensemble model XGBoostClassifier model . So the Automated ML run did not use the ensemble model XGBoostClassifier
 
