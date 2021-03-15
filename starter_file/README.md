@@ -195,6 +195,31 @@ Data Guardrails checks in the AzureML Studio:
 
 ![automl-runwidget-accuracy-gr](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget-accuracy-gr.png)
 
+***Screenshots from Azure ML Studio***
+
+_AutoML models_
+
+![automl-runs](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runs.png)
+
+_Best model data_
+
+![best-model-details](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/best-model-details.png)
+
+_Best model metrics_
+
+![Best model metrics](img/38.JPG?raw=true "Best model metrics")
+
+_Charts_
+
+![Best model metrics - Charts](img/42.JPG?raw=true "Best model metrics - Charts")
+
+![Best model metrics - Charts](img/43.JPG?raw=true "Best model metrics - Charts")
+
+_Aggregate feature importance_
+
+![Best model metrics - Charts](img/44.JPG?raw=true "Best model metrics - Charts")
+
+As we can see, **time** is by far the **most important factor**, followed by serum creatinine and ejection fraction.
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
 
