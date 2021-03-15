@@ -28,7 +28,19 @@ Given below is the workflow for this project
 ![Project Workflow](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/proj-workflow.png) 
 
 ## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
+In order to run the project in Azure Machine Learning Studio, we will need the two Jupyter Notebooks:
+
+- `hyperparameter_tuning.ipynb`: for the HyperDrive experiment.
+- `automl.ipynb`: for the AutoML experiment;
+
+
+The following files are also necessary:
+
+- `heart_failure_clinical_records_dataset.csv`: the dataset file.
+- `train.py`: a basic script for manipulating the data used in the HyperDrive experiment;
+- `scoring_file_v_1_0_0.py`: the script used to deploy the model which is downloaded from within Azure Machine Learning Studio; &
+- `env.yml`: the environment file which is also downloaded from within Azure Machine Learning Studio.
+
 
 ## Dataset
 
