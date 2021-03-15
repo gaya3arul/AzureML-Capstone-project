@@ -195,6 +195,25 @@ Data Guardrails checks in the AzureML Studio:
 
 ![automl-runwidget-accuracy-gr](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runwidget-accuracy-gr.png)
 
+#### Best model
+
+After the completion, we can see and take the metrics and details of the best run:
+
+![automl-runs](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/automl-runs.png)
+
+![best-model-details](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/best-model-details.png)
+
+![AutoML-best-run](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/AutoML-best-run.png)
+
+Best model results:
+
+| AutoML Model | |
+| :---: | :---: |
+| id | AutoML_213153bb-f0e4-4be9-b265-6bbad4f0f9e4_40 |
+| Accuracy | 0.8595525727069351 |
+| AUC_weighted | 0.9087491748331944 |
+| Algorithm | VotingEnsemble |
+
 ***Screenshots from Azure ML Studio***
 
 _AutoML models_
@@ -207,27 +226,74 @@ _Best model data_
 
 _Best model metrics_
 
-![Best model metrics](img/38.JPG?raw=true "Best model metrics")
+![all-metrics](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/all-metrics.png)
 
 _Charts_
 
-![Best model metrics - Charts](img/42.JPG?raw=true "Best model metrics - Charts")
+![precision-recall](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/precision-recall.png)
 
-![Best model metrics - Charts](img/43.JPG?raw=true "Best model metrics - Charts")
+![roc](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/roc.png)
 
 _Aggregate feature importance_
 
-![Best model metrics - Charts](img/44.JPG?raw=true "Best model metrics - Charts")
+!feature-imp](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/feature-imp.png)
 
-As we can see, **time** is by far the **most important factor**, followed by serum creatinine and ejection fraction.
+As we can see, **time** is by far the **most important factor**, followed by ejection fraction and serum creatinine.
+
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+
+For this experiment I am using a custom Scikit-learn Logistic Regression model, whose hyperparameters I tuned using HyperDrive.
+
+I specify the parameter sampler using the parameters C and max_iter and chose discrete values with choice for both parameters.
+
+I specified the parameter sampler as below:
+
+```
+ps = RandomParameterSampling(
+    {
+        '--C' : choice(0.001,0.01,0.1,1,10,20,50,100,200,500,1000),
+        '--max_iter': choice(50,100,200,300)
+    }
+)
+```
+
+I chose discrete values with _choice_ for both parameters, _C_ and _max_iter_.
+
+_C_ is the Regularization while _max_iter_ is the maximum number of iterations.
+
+_RandomParameterSampling_ is one of the choices available for the sampler and I chose it because it is the faster and supports early termination of low-performance runs. If budget is not an issue, we could use _GridParameterSampling_ to exhaustively search over the search space or _BayesianParameterSampling_ to explore the hyperparameter space. 
+
+**Early stopping policy**
+
+An early stopping policy is used to automatically terminate poorly performing runs thus improving computational efficiency. I chose the _BanditPolicy_ which I specified as follows:
+```
+policy = BanditPolicy(evaluation_interval=2, slack_factor=0.1)
+```
+_evaluation_interval_: This is optional and represents the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval.
+
+_slack_factor_: The amount of slack allowed with respect to the best performing training run. This factor specifies the slack as a ratio.
+
+Any run that doesn't fall within the slack factor or slack amount of the evaluation metric with respect to the best performing run will be terminated. This means that with this policy, the best performing runs will execute until they finish and this is the reason I chose it.
 
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
 
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+Hyperdrive experiment run completion in Experiments tab:
+![HD-runs](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/HD-runs.png)
+
+#### Completion of the HyperDrive run (RunDetails widget):
+
+![hyp-drive-runs-while-running](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-drive-runs-while-running.png)
+
+![hyp-run-completed](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-run-completed.png)
+
+![hyp-drive-acc](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-drive-acc.png)
+
+![hyp-drive-parallel-chart](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-drive-parallel-chart.png)
+
+`--C` 'Regularization Strength': 500 , `--max iter` Maximum Iterations: 50 and Accuracy acheived is 0.8333
+Hyperdrive best run parameters: 
+![hyp-best-run-with-metrics](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/hyp-best-run-with-metrics.png)
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
