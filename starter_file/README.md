@@ -423,10 +423,22 @@ We updated the data as below:
 
 ![data-json](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/data-json.png)
 
-When two data points are passed to the server, the model has predicted that patient will die before the next follow-up. 
+The data is then converted to JSON string format:
+
+![convert-json](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/convert-json.png)
+
+We set the content type:
+
+![set-content-type](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/set-content-type.png)
+
+Finally, we make the request and print the response on screen:
+
+![display-response](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/display-response.png)
 
 Running the endpoint.py script against the API producing JSON output from the model:
 ![ENDPOINT-RUN](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/ENDPOINT-RUN.png)
+
+When two data points are passed to the server, the model has predicted that patient will die before the next follow-up. 
 
 ## Screen Recording
 The screencast is available [here](https://youtu.be/3ZNlzpwzCMM) and it covers
