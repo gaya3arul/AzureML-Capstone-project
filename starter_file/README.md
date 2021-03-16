@@ -455,3 +455,9 @@ I completed the above point . It can be found in the automl.ipynb notebook.
 
 
 ## Future Improvement Suggestions
+
+* In future I would like to try to deploy my model to the Edge using Azure IoT Edge.
+
+* In future, I would like to experiment more with different hyper parameters and see if the performance metric improves. 
+
+
