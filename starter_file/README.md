@@ -10,6 +10,7 @@
    * [Model Deployment](#Model-Deployment)
    * [Screen Recording](#Screen-Recording)
    * [Standout Suggestions](#Standout-Suggestions)
+   * [Future Improvement Suggestions](Future-Improvement-Suggestions)
 
 ***
 
@@ -24,7 +25,7 @@ As part of this capstone project, after registering the dataset into Azure Machi
 
 Once the models are created, we need to compare the best model from both AutoML and HyperDrive experiment,select the best out the two experimenst and then deploy the best performing model as a service using Azure Container Instances (ACI).
 
-Once the best model is deployed, we need to query the model endpoint using sample data. 
+Once the best model is deployed, the model endpoint can be consumed using JSON payload. 
 
 Given below is the workflow for this project
 ![Project Workflow](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/proj-workflow.png) 
@@ -184,7 +185,7 @@ I blocked the ensemble model XGBoostClassifier model . So the Automated ML run d
 
 ### Results
 
-Before building the model, the data is validated and processed.
+Before building the model, the data is validated and pre-processing is done.
 
 The dataset is a balanced datasetno features were missing and no high cardinality features were detected .
 
@@ -396,4 +397,4 @@ I completed the above point . It can be found in the automl.ipynb notebook.
 ![save-onnx](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/save-onnx.png)
 
 
-
+## Future Improvement Suggestions
