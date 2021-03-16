@@ -420,6 +420,7 @@ In order to request data, the REST API expects the body of the request to be a J
 ```
 
 We updated the data as below:
+
 ![data-json](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/data-json.png)
 
 When two data points are passed to the server, the model has predicted that patient will die before the next follow-up. 
