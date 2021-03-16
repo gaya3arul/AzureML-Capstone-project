@@ -389,7 +389,7 @@ Swagger is a set of open-source tools built around the OpenAPI Specification tha
 
 The Swagger JSON file has been downloaded from the deployed model and copied to the swagger directory. The swagger.sh script has been run to download the latest Swagger container and run it on port 9080.
 
-Swagger UI now has the name of the deployed model after running the serve.py file:
+Swagger UI now has the name of the deployed model:
 ![swagger-ui](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui.png)
 
 Swagger running on localhost showing the HTTP API methods and responses for the model.We can post and get data from the webserver using Swagger.
