@@ -19,8 +19,12 @@ Dataset: https://www.kaggle.com/andrewmvd/heart-failure-clinical-data?select=hea
 
 As part of this capstone project, after registering the dataset into Azure Machine Learning Studio, I need to create two experiments 
 
-i) To train a Model using Logistic Regression Model using custom scikit-learn and tune the hyperparameters using HyperDrive.
-ii) To train a Model using Automated ML 
+- To train a Model using Logistic Regression using custom scikit-learn and tune the hyperparameters using HyperDrive
+- To train a Model using Automated ML 
+
+Once the models are created, we need to compare the best model from both AutoML and HyperDrive experiment,select the best out the two experimenst and then deploy the best performing model as a service using Azure Container Instances (ACI).
+
+Once the best model is deployed, we need to query the model endpoint using sample data. 
 
 Given below is the workflow for this project
 ![Project Workflow](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/proj-workflow.png) 
