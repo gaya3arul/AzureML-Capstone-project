@@ -396,7 +396,7 @@ Swagger running on localhost showing the HTTP API methods and responses for the 
 
 The following acreenshots shows various methods used and various responses we get from the server:
 ![swagger-ui1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui1.png)
-![swagger-ui2](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/33swagger-ui2.png)
+![swagger-ui2](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui2.png)
 
 ## Consuming/testing the endpoint (ACI service)
 
@@ -405,8 +405,22 @@ Once the best model is deployed, I consume its endpoint using the endpoint.py sc
 Scoring URI,Swagger URI and Primary key details of the deployed service:
 ![scoring-uri](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/scoring-uri.png)
 
-The result from the model is displayed when endpoint.py script is run:
+Updating the endpoint.py with the scoring uri and primary key:
 ![updating-endpoint](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/updating-endpoint.png)
+
+In order to request data, the REST API expects the body of the request to be a JSON document with the following structure:
+
+```
+{
+    "data":
+        [
+            <model-specific-data-structure>
+        ]
+}
+```
+
+We updated the data as below:
+![data-json](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/data-json.png)
 
 When two data points are passed to the server, the model has predicted that patient will die before the next follow-up. 
 
