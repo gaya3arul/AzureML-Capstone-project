@@ -352,39 +352,69 @@ The inference configuration defines the environment used to run the deployed mod
 ### Entry script
 
 The entry script is the `scoring_file_v_1_0_0.py` file. The entry script loads the model when the deployed service starts and it is also responsible for receiving data, passing it to the model, and then returning a response.
+
 ### Compute target
 
 As compute target, I chose the Azure Container Instances (ACI) service, which is used for low-scale CPU-based workloads that require less than 48 GB of RAM.
 
 The AciWebservice Class represents a machine learning model deployed as a web service endpoint on Azure Container Instances. The deployed service is created from the model, script, and associated files, as I explain above. The resulting web service is a load-balanced, HTTP endpoint with a REST API. We can send data to this API and receive the prediction returned by the model.
 
+![DEPLOYMENT-CONFIG](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/DEPLOYMENT-CONFIG.png)
+
+`cpu_cores` : It is the number of CPU cores to allocate for this Webservice. 
+
+`memory_gb` : The amount of memory (in GB) to allocate for this Webservice. 
+
+`auth_enabled` : I set it to _True_ in order to enable auth for the Webservice.
+
+`enable_app_insights` : I set it to _True_ in order to enable AppInsights for this Webservice.
+
 ### Deployment
 
 Best Model is deployed using the below code:
 ![model-deployment](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/model-deployment.png)
 
-Deployed-model:
+Deployed-model :
+
+Model Deployment state is healthy. And the model is deployed using ACI(Azure Container Services.
 ![deployed-model](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/deployed-model.png)
 
+Key Based Authentication is enabled and Applications Insights is enabled:
 ![deployed-model1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/deployed-model1.png)
 
-The scoring URI can be used by clients to submit requests to the service.
-
-In order to test the deployed model, I use a Python file, named endpoint.py:
-
-Updating endpoint.py file
-![updating-endpoint](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/updating-endpoint.png)
-
-After updating the endpoint file, the script can be run to send and receive results through http service:
 
 Swagger UI:
-![swagger-ui](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui.png)
-![swagger-ui1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui1.png)
-![swagger-ui2](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui2.png)
 
+Swagger is a set of open-source tools built around the OpenAPI Specification that can help us design, build, document and consume REST APIs. One of the major tools of Swagger is Swagger UI, which is used to generate interactive API documentation that lets the users try out the API calls directly in the browser.
+
+The Swagger JSON file has been downloaded from the deployed model and copied to the swagger directory. The swagger.sh script has been run to download the latest Swagger container and run it on port 9080.
+
+Swagger UI now has the name of the deployed model after running the serve.py file:
+![swagger-ui](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui.png)
+
+Swagger running on localhost showing the HTTP API methods and responses for the model.We can post and get data from the webserver using Swagger.
+
+The following acreenshots shows various methods used and various responses we get from the server:
+![swagger-ui1](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/swagger-ui1.png)
+![swagger-ui2](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/33swagger-ui2.png)
+
+## Consuming/testing the endpoint (ACI service)
+
+Once the best model is deployed, I consume its endpoint using the endpoint.py script provided where I replace the values of scoring_uri and key to match the corresponding values that appear in the Consume tab of the endpoint.
+
+Scoring URI,Swagger URI and Primary key details of the deployed service:
+![scoring-uri](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/scoring-uri.png)
+
+The result from the model is displayed when endpoint.py script is run:
+![updating-endpoint](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/updating-endpoint.png)
+
+When two data points are passed to the server, the model has predicted that patient will die before the next follow-up. 
+
+Running the endpoint.py script against the API producing JSON output from the model:
+![ENDPOINT-RUN](https://github.com/gaya3arul/nd00333-capstone/blob/master/starter_file/screenshots-capstone/ENDPOINT-RUN.png)
 
 ## Screen Recording
-The screencast is available [here](https://youtu.be/yhK972pvVco) and it covers
+The screencast is available [here](https://youtu.be/3ZNlzpwzCMM) and it covers
 - A working model
 - Demo of the deployed  model
 - Demo of a sample request sent to the endpoint and its response
