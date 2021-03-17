@@ -10,7 +10,7 @@
    * [Model Deployment](#Model-Deployment)
    * [Screen Recording](#Screen-Recording)
    * [Standout Suggestions](#Standout-Suggestions)
-   * [Future Improvement Suggestions](Future-Improvement-Suggestions)
+   * [Future Improvement Suggestions](#Future-Improvement-Suggestions)
 
 ***
 
